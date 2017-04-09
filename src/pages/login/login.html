@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color = "primary">
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h3>Sign in to Higher Education Guide</h3>
+  <form>
+      <ion-list>
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <button ion-button color="secondary" full>Sign In</button>
+            </ion-item>
+
+            <ion-item>
+                <button ion-button color="danger" full (click)="viewItem()">Sign Up</button>
+            </ion-item>
+
+            <ion-item>
+                <a ion-button clear>Forgot password? </a>
+            </ion-item>
+        </ion-list>
+
+
+        <!--<ion-list radio-group>
+            <ion-list-header>
+                User Type :
+            </ion-list-header>
+
+            <ion-item>
+                <ion-label>Student</ion-label>
+                <ion-radio  value="student"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Institue</ion-label>
+                <ion-radio checked="true" value="institue"></ion-radio>
+            </ion-item>
+        </ion-list>-->
+
+  </form>
+</ion-content>
