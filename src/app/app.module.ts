@@ -9,6 +9,7 @@ import {SignUpPage} from '../pages/signup/signup';
 import {StreemPage} from '../pages/streem/streem';
 import {OlresultPage} from '../pages/olresult/olresult';
 import {CoursePage} from '../pages/course/course';
+import {CoursedetailsPage} from '../pages/coursedetails/coursedetails';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,7 +22,8 @@ import { HomePage } from '../pages/home/home';
     SignUpPage,
     StreemPage,
     OlresultPage,
-    CoursePage
+    CoursePage,
+    CoursedetailsPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { HomePage } from '../pages/home/home';
     SignUpPage,
     StreemPage,
     OlresultPage,
-    CoursePage
+    CoursePage,
+    CoursedetailsPage
   ],
   providers: [
     StatusBar,
