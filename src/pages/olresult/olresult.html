@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color = "primary">
+    <ion-title>
+      O/L result
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Enter your O/L results</h3>
+
+  <ion-list>
+      <ion-item>
+          <ion-label fixed>Maths :</ion-label>
+          <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label fixed>Science :</ion-label>
+          <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label fixed>English :</ion-label>
+          <ion-input type="text"></ion-input>
+      </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <button ion-button color="secondary" full (click)="viewCourses()">Submit</button>
+</ion-item>
+
+</ion-content>

@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import {LoginPage} from '../pages/login/login';
 import {SignUpPage} from '../pages/signup/signup';
+import {StreemPage} from '../pages/streem/streem';
+import {OlresultPage} from '../pages/olresult/olresult';
+import {CoursePage} from '../pages/course/course';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,7 +18,10 @@ import { HomePage } from '../pages/home/home';
     MyApp,
     HomePage,
     LoginPage,
-    SignUpPage
+    SignUpPage,
+    StreemPage,
+    OlresultPage,
+    CoursePage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,10 @@ import { HomePage } from '../pages/home/home';
     MyApp,
     HomePage,
     LoginPage,
-    SignUpPage
+    SignUpPage,
+    StreemPage,
+    OlresultPage,
+    CoursePage
   ],
   providers: [
     StatusBar,
