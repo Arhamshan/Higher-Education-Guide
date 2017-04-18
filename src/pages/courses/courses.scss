@@ -1,0 +1,40 @@
+  page-courses{
+
+           
+     
+.login-content {
+      
+      background: url('../assets/img/b.jpg');
+}
+  
+  .submit-btn {
+       background: #00E676;
+       border-radius: 50px !important;
+       
+       font-size: 0.8em;
+       box-shadow: 2px 2px 2px  #888888;
+       font-family: Neoteric;
+
+     }
+ 
+     .register-btn {
+       background:#F44336;
+       font-size: 0.8em;
+        border-radius: 50px !important;
+        box-shadow: 2px 2px 2px  #888888;
+        font-family: Neoteric;
+     }
+
+     .input {
+    padding: 20px 10px;
+}
+
+  ion-icon:before{
+      margin-right : 5px;
+  }
+
+     @font-face {
+    font-family: 'Neoteric'; /*a name to be used later*/
+    src: url('http://www.dafont.com/neoteric.font'); /*URL to font*/
+}
+  }

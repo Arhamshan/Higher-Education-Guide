@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import {SignUpPage} from '../signup/signup';
 import {StreemPage} from '../streem/streem';
+import {CoursesPage} from '../courses/courses'
 
 @Component({
   selector: 'page-login',
@@ -20,6 +21,10 @@ export class LoginPage {
 
   pickStreem(){
     this.navCtrl.push(StreemPage);
+  }
+
+  adminPage(){
+      this.navCtrl.push(CoursesPage);
   }
 
 }
