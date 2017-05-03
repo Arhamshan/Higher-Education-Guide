@@ -1,8 +1,7 @@
 <ion-header>
   <ion-navbar color = "primary">
     <ion-title>
-        <i class="fa fa-user-plus" aria-hidden="true"></i>
-       Login
+        <i class="fa fa-sign-in" aria-hidden="true"></i> Login               
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,32 +12,40 @@
       <ion-list>
             <ion-item>
                 <ion-label floating>Username</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" [(ngModel)]="emailField" name="username"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label floating>Password</ion-label>
-                <ion-input type="password"></ion-input>
+                <ion-input type="password" [(ngModel)]="passwordField" name="password"></ion-input>
             </ion-item>
 
             <ion-item>
-                <button ion-button color="secondary" full (click)="pickStreem()">Sign In</button>
+                <button ion-button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" full (click)="loginUser()">Sign In</button>
             </ion-item>
 
             <ion-item>
-                <button ion-button color="danger" full (click)="viewItem()">Sign Up</button>
+                <button ion-button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" full (click)="viewItem()">Sign Up</button>
             </ion-item>
 
             <ion-item>
-                <a ion-button clear>Forgot password? </a>
+                <a ion-button clear class="mdl-button mdl-js-button mdl-button--primary" (click)="forgotPassword()">Forgot password? </a>
             </ion-item>
-            <br/>
             <br/>
 
             <ion-item>
                 <a ion-button clear (click)="adminPage()">Admin (temperory) </a>
             </ion-item>
         </ion-list>
+
+        <!--<ion-list>
+            <h3>All Users </h3>
+            <ion-item *ngFor="let user of usersList">
+                <ion-label>{{user.name.first}} {{user.name.last}}</ion-label>
+
+
+            </ion-item>
+        </ion-list>-->
 
 
         <!--<ion-list radio-group>

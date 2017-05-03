@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color = "primary">
     <ion-title>
-      Sign Up
+      <i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,44 +13,45 @@
 
         <ion-item>
             <ion-label fixed>Email :</ion-label>
-            <ion-input name="email" type="text" ></ion-input>
+            <ion-input type="text" [(ngModel)]="emailField" name="email" ></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item> 
+
             <ion-label fixed>Username :</ion-label>
-            <ion-input name="username" type="text" s></ion-input>
+            <ion-input name="username" type="text" [(ngModel)]="usernameField" name="username"></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label fixed>Password :</ion-label>
-            <ion-input name="password" type="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="passwordField" name="password" ></ion-input>
         </ion-item>
         <ion-item>
             <ion-label >Confirm Password :</ion-label>
             <ion-input name="confirmpassword" type="password"></ion-input>
         </ion-item>
 
-        <ion-list radio-group [(ngModel)]="content">
+        <ion-list radio-group [(ngModel)]="userType">
             <ion-list-header>
                 User Type :
             </ion-list-header>
 
             <ion-item>
                 <ion-label>Student</ion-label>
-                <ion-radio name="student" checked="false" value="student"></ion-radio>
+                <ion-radio name="student" checked="true" value="student"></ion-radio>
             </ion-item>
 
             <ion-item >
                 <ion-label>Institue</ion-label>
                 <ion-radio name="institue" value="institute"></ion-radio>
             </ion-item>
-            <ion-item *ngIf="content=='institute'" >
+            <ion-item *ngIf="userType=='institute'" >
                 <ion-label >Institute Name :</ion-label>
                 <ion-input name="institutename" type="text" value=""></ion-input>
             </ion-item>
                         
             <ion-item>
-                    <button ion-button color="secondary" full>Sign Up</button>
+                    <button ion-button color="secondary" full (click)="signUserUp()">Sign Up</button>
             </ion-item> 
         </ion-list>
         

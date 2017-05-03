@@ -1,8 +1,15 @@
 <ion-header>
   <ion-navbar color = "primary">
     <ion-title>
-      Streem
+      <ion-icon md="md-book"></ion-icon> Streem
     </ion-title>
+
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button >
+            <ion-icon name="person"></ion-icon>
+            Logout
+        </button>
+    </ion-buttons>
     
   </ion-navbar>
 </ion-header>
