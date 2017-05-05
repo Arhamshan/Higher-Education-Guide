@@ -12,20 +12,24 @@
   <ion-list>
       <ion-item>
           <ion-label fixed>Maths :</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="OLMaths"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label fixed>Science :</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="OLScience"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label fixed>English :</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="OLEnglish"></ion-input>
       </ion-item>
   </ion-list>
 
+    <ion-item>
+        <button ion-button color="light" full (click)="viewALResult()">View AL Result</button>
+    </ion-item>
+
   <ion-item>
     <button ion-button color="secondary" full (click)="viewCourses()">Submit</button>
-</ion-item>
+  </ion-item>
 
 </ion-content>

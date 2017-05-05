@@ -22,7 +22,7 @@
   <ion-list >
     <ion-item>
         <ion-label>A/L Streem :</ion-label>
-        <ion-select [(ngModel)]="streem" name="streem">
+        <ion-select [(ngModel)]="streem" (ngModelChange)="loadingStreem()" name="streem">
             <ion-option value="bio">Bio Science</ion-option>
             <ion-option checked="true" value="maths">Combine Maths</ion-option>
             <ion-option value="commerce">Commerce</ion-option>
@@ -32,51 +32,27 @@
   </ion-list>
 
 <h3>Enter your A/L results</h3>
-  <ion-list *ngIf="streem=='bio'">
+  <ion-list >
       <ion-item>
-          <ion-label fixed>Biology :</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label fixed>{{subject1}} :</ion-label>
+          <ion-input type="text" [(ngModel)]="subject1Field"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label fixed>Chemistry :</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label fixed>{{subject2}} :</ion-label>
+          <ion-input type="text" [(ngModel)]="subject2Field"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label fixed>Physics :</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-  </ion-list>
-
-  <ion-list *ngIf="streem=='maths'">
-      <ion-item>
-          <ion-label fixed>Maths :</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>Chemistry :</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>Physics :</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label fixed>{{subject3}} :</ion-label>
+          <ion-input type="text" [(ngModel)]="subject3Field"></ion-input>
       </ion-item>
   </ion-list>
 
-  <ion-list *ngIf="streem=='commerce'">
-      <ion-item>
-          <ion-label fixed>Accounting :</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>Bussines study :</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>Economics :</ion-label>
-          <ion-input type="text"></ion-input>
-      </ion-item>
-  </ion-list>
 
+<ion-item>
+    <button ion-button color="danger" full (click)="getALResult()">View Results</button>
+</ion-item> 
+
+  <!--
   <ion-list *ngIf="streem=='arts'">
       <ion-item>
           <ion-label fixed>Geaography :</ion-label>
@@ -98,8 +74,8 @@
         <ion-label fixed>Art :</ion-label>
         <ion-input type="text"></ion-input>
     </ion-item>
-</ion-list>
-
+  </ion-list>
+-->
 <ion-item>
     <button ion-button color="secondary" full (click)="olResultPage()">Submit</button>
 </ion-item> 
