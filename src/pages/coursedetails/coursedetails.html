@@ -11,7 +11,7 @@
         <img src="../../assets/imgs/4.jpg"/>
         <ion-card-content>
             <ion-card-title>
-                Software Engineering BIT
+                {{courseTitle}}
             </ion-card-title>
             <ion-list>
                 <ion-item>
@@ -42,7 +42,7 @@
                 </ion-item>-->
 
             </ion-list>
-            <a ion-button target="_blanck" >View On Website </a>
+            <a ion-button target="_blanck" (click)="courseDetail()" >View On Website </a>
         </ion-card-content>
     </ion-card>
 </ion-content>

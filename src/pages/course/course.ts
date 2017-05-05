@@ -25,7 +25,9 @@ private courseTitle:any;
         //this.displayCourse('c1');
   }
   viewCourseDetails(){
-    this.navCtrl.push(CoursedetailsPage);
+    this.navCtrl.push(CoursedetailsPage, {
+    param1: this.courseTitle
+  });
   }
 
   suitableCourses(){
