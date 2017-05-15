@@ -27,34 +27,34 @@ export class SignUpPage {
   }
 
   signUserUp(){
-    this.usersService.signUpUser(this.emailField, this.passwordField, this.usernameField, this.userType)
-      .then(authData =>{
-        //successfull login
-        let alert = this.alertCtrl.create({
-          title: 'Success!',
-          subTitle: 'Your account created successfully',
-          buttons: ['OK']
-        });
-        alert.present();
+    // this.usersService.signUpUser(this.emailField, this.passwordField, this.usernameField, this.userType)
+    //   .then(authData =>{
+    //     //successfull login
+    //     let alert = this.alertCtrl.create({
+    //       title: 'Success!',
+    //       subTitle: 'Your account created successfully',
+    //       buttons: ['OK']
+    //     });
+    //     alert.present();
 
-        this.navCtrl.setRoot(StreemPage);
-      }, error =>{
-          loader.dismiss().then(()=>{
-            let alert = this.alertCtrl.create({
-              title: 'Error!',
-              subTitle: error.message,
-              buttons: ['OK']
-            });
-            alert.present();
-          });
-      });
+    //     this.navCtrl.setRoot(StreemPage);
+    //   }, error =>{
+    //       loader.dismiss().then(()=>{
+    //         let alert = this.alertCtrl.create({
+    //           title: 'Error!',
+    //           subTitle: error.message,
+    //           buttons: ['OK']
+    //         });
+    //         alert.present();
+    //       });
+    //   });
 
-      let loader = this.loadingCtrl.create({
-        dismissOnPageChange: true,
-        content: 'Creating your account...'
-      });
+    //   let loader = this.loadingCtrl.create({
+    //     dismissOnPageChange: true,
+    //     content: 'Creating your account...'
+    //   });
 
-      loader.present();
+    //   loader.present();
 
   }
 

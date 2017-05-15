@@ -9,26 +9,29 @@
             <ion-icon name="person"></ion-icon>
             Logout
         </button>
-    </ion-buttons>
-    
+    </ion-buttons>    
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-    
-
   <h3>Select yout A/L streem</h3>
-
   <ion-list >
     <ion-item>
         <ion-label>A/L Streem :</ion-label>
         <ion-select [(ngModel)]="streem" (ngModelChange)="loadingStreem()" name="streem">
-            <ion-option value="bio">Bio Science</ion-option>
-            <ion-option checked="true" value="maths">Combine Maths</ion-option>
-            <ion-option value="commerce">Commerce</ion-option>
-            <ion-option value="arts">Arts</ion-option>
+            <ion-option value="Bio">Bio Science</ion-option>
+            <ion-option checked="true" value="Maths">Combine Maths</ion-option>
+            <ion-option value="Commerce">Commerce</ion-option>
+            <ion-option value="Arts">Arts</ion-option>
         </ion-select>
     </ion-item>
+    <!--<ion-item *ngFor="let course of suitableCourseList">
+        <ion-label>Course is : {{course}}</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let period of suitableCoursePeriodList">
+        <ion-label>Course is : {{period}}</ion-label>
+    </ion-item>-->
   </ion-list>
 
 <h3>Enter your A/L results</h3>
@@ -47,38 +50,13 @@
       </ion-item>
   </ion-list>
 
-
+<!--
 <ion-item>
-    <button ion-button color="danger" full (click)="getALResult()">View Results</button>
-</ion-item> 
+    <button ion-button color="danger" full (click)="getSiutableCourseList()">View Results</button>
+</ion-item> -->
 
-  <!--
-  <ion-list *ngIf="streem=='arts'">
-      <ion-item>
-          <ion-label fixed>Geaography :</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label fixed>Economics :</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label fixed>Political Science :</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label fixed>Home Science :</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label fixed>Art :</ion-label>
-        <ion-input type="text"></ion-input>
-    </ion-item>
-  </ion-list>
--->
 <ion-item>
     <button ion-button color="secondary" full (click)="olResultPage()">Submit</button>
-</ion-item> 
-
+</ion-item>
 
 </ion-content>

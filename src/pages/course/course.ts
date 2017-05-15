@@ -3,6 +3,8 @@ import { NavController, NavParams, AlertController} from 'ionic-angular';
 
 import{CoursedetailsPage} from '../coursedetails/coursedetails';
 
+import {NewCourses} from '../../app/model/course';
+
 //import services
 import {NewcourseService} from '../../providers/newcourse-service';
 
@@ -14,83 +16,68 @@ import {NewcourseService} from '../../providers/newcourse-service';
 })
 export class CoursePage {
 
-public streem:any;
+public ALstreem:any;
 private Alevel:any;
 private Olevel:any;
-private courseTitle:any;
-//private courseTitle: any;
+public courseTitleList: any[] =[];
+public coursePeriodList: any[] = [];
+public coursesList: NewCourses[];
+public suitableCourseList: NewCourses;
+//newcourse:NewCourses;
 
-  constructor(public navCtrl: NavController, private navParam: NavParams, private alertCtrl: AlertController, private courseService: NewcourseService) {
-        this.suitableCourses();
-        //this.displayCourse('c1');
-  }
-  viewCourseDetails(){
+public i:number;
+  constructor(public navCtrl: NavController, private navParam: NavParams, private alertCtrl: AlertController, private newCourseService: NewcourseService) {
+        
+        this.Alevel = this.navParam.get('param1');
+        this.ALstreem = this.navParam.get('param2');
+        this.Olevel = this.navParam.get('param3');
+        console.log('A/L is :  ' + this.Olevel);
+        console.log('O/L is :  ' + this.Olevel);
+        this.getAllCourseList();
+}
+
+  viewCourseDetails(course: NewCourses){
+    //console.log("course title : " );
     this.navCtrl.push(CoursedetailsPage, {
-    param1: this.courseTitle
+    param1: course
   });
-  }
+}
 
-  suitableCourses(){
-    this.streem = this.navParam.get('param1')
-    this.Alevel = this.navParam.get('param2')
-    this.Olevel = this.navParam.get('param3')
+getAllCourseList(){
+  this.newCourseService.getNewCourses()
+    .subscribe(
+      data =>{
+          this.coursesList = data;
 
-  // let alert = this.alertCtrl.create({
-  //   title: 'Your O/L results!',
-  //   subTitle: 'your data from previouse page:- '+ this.Olevel,
-  //   buttons: ['OK']
-  // });
-  // alert.present();
-
-    if(this.streem=='bio'){
-      if(this.Alevel=='Good'){
-        this.courseTitle = 'Madicine'
-      }
-      else if(this.Alevel=='Average'){
-        this.courseTitle = 'Pharmacy'
-      }      
+          console.log("required result : " + this.coursesList[0].alstreem);
+          for(let newcourse of this.coursesList){
+            console.log("Hello streem is : " + newcourse.alstreem);
+            if(newcourse.alstreem == this.ALstreem && newcourse.alstreem == "Any"){
+              console.log("Hello title is : " + newcourse.title);
+            }
+          }
+      },
+      error => alert(error),
+      () => console.log('Finished the request!')
+    );
     
-    }else if(this.streem=='maths'){
-      if(this.Alevel=='Good'){
-        this.courseTitle = 'Engineering'
-      }
-      else if(this.Alevel=='Average'){
-        this.courseTitle = 'Information Technology'
-      }
-    
-    }else if(this.streem=='commerce'){
-      if(this.Alevel=='Good'){
-        this.courseTitle = 'Information Technology'
-      }
-      else if(this.Alevel=='Average'){
-        this.courseTitle = 'Accounting'
-      }
-    
-    }
+}
 
-  }
-
-  checkButton(){
-    this.displayCourse('c1');
-    console.log('your old course is : '+ this.courseTitle);
-  }
-
-
-  displayCourse(courseId){
-    var that = this;
-    this.courseService.viewCourse(courseId).then(snapshot =>{
-      this.courseTitle = snapshot.val().title;
-    console.log('your new course is : '+ this.courseTitle);
-    })
-  }
-
-  // displayCourse(courseId){
-  //   var that = this;
-  //   this.courseService.viewCourse().then(snapshot =>{
-  //     this.courseTitle = snapshot.val().title;
-  //   console.log('your new course is : '+ this.courseTitle);
-  //   })
+filterSiutableCourseList(){
+  this.getAllCourseList();
+  this.i =0;
+  // while(this.coursesList.length = 0){
+     
+  //     // if(newcourse.alstreem == this.ALstreem ||   ){
+  //       //this.suitableCourseList = newcourse;
+  //       this.newcourse = this.coursesList[this.i];
+  //       console.log("Hello this is : " + this.newcourse.title);
+  //       this.i++;
+  //     //}
   // }
+
+  
+}
 
 
 }

@@ -7,39 +7,40 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-        <img src="../../assets/imgs/4.jpg"/>
+  <ion-card >
+        <img src="../../assets/imgs/1.jpg" /> <!--//style="height:300px; width:300px"-->
         <ion-card-content>
             <ion-card-title>
-                {{courseTitle}}
+                {{course.title}}
             </ion-card-title>
             <ion-list>
                 <ion-item>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br/>
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <br/>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                         quis nostrud exercitation ullamco laboris nisi ut aliquip <br/>
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                        ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate
                         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
                         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
                     </p>
                 </ion-item>
                 
-                <!--<ion-item>
+                <h4><b>Requirements And Details</b></h4>
+                <ion-item>
                     <ion-icon name="thumbs-up" item-left></ion-icon>
-                    Score
+                    A/L Result : 
                     <ion-note item-right>
-                        {{item.score}}
+                        {{course.alresult}}
                     </ion-note>
                 </ion-item>
 
                 <ion-item>
                     <ion-icon name="chatboxes" item-left></ion-icon>
-                    Comments
+                    Course Period : 
                     <ion-note item-right>
-                        {{item.num_comments}}
+                        {{course.courseperiod}}
                     </ion-note>
-                </ion-item>-->
+                </ion-item>
 
             </ion-list>
             <a ion-button target="_blanck" (click)="courseDetail()" >View On Website </a>
