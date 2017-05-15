@@ -5,6 +5,7 @@ import { NavController, ModalController, LoadingController, AlertController } fr
 import {SignUpPage} from '../signup/signup';
 import {StreemPage} from '../streem/streem';
 import {CoursesPage} from '../courses/courses';
+import{CourseMainPage} from '../coursemain/coursemain';
 
 //import services
 import {UsersService} from '../../providers/users-service';
@@ -35,7 +36,7 @@ export class LoginPage {
   }
 
   adminPage(){
-      this.navCtrl.push(CoursesPage);
+      this.navCtrl.push(CourseMainPage);
   }
 
   // loginUser(){

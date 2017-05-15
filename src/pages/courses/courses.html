@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color = "primary">
     <ion-title>
-      <i class="fa fa-university" aria-hidden="true"></i> Courses and Programmes
+      <i class="fa fa-university" aria-hidden="true"></i> Manage Courses and Programmes
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,152 +10,31 @@
 
 <ion-content class ="login-content">
 <div class="input">
-<ion-card>
+<ion-list>
 
-  <ion-item>
+  <ion-item-sliding>
+    <ion-item>
     <ion-avatar item-left>
-      <img src="../assets/img/s.png">
+      <img src='./assets/img/s.png'>
     </ion-avatar>
-    <h2>Course Title</h2>
-    <p>April 5, 2017</p>
-  </ion-item>
+    <h2>Title</h2>
+    <p>course.date</p>
+    <p>course.description</p>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="secondary">
+        <ion-icon name="md-create" >Edit</ion-icon>
+      </button>
+    </ion-item-options>
 
-  
-
-  <ion-card-content padding>
-    <p>Brief description about the course.</p>
-      <button  ion-button (click) ="presentConfirm()" class="register-btn"   round><ion-icon name="trash"></ion-icon> Delete  </button>
-      <button ion-button (click)="doConfirm()" class="submit-btn"  round>Update</button>
-
-      
-  </ion-card-content>
-
-  
-
-</ion-card>
-
-<ion-card>
-
-  <ion-item>
-    <ion-avatar item-left>
-      <img src="../assets/img/s.png">
-    </ion-avatar>
-    <h2>Course Title</h2>
-    <p>April 5, 2017</p>
-  </ion-item>
-
-  
-
-  <ion-card-content>
-    <p>Brief description about the course.</p>
-    
-    <button  ion-button (click) ="presentConfirm()" class="register-btn"   round><ion-icon name="trash"></ion-icon> Delete  </button>
-
-      <button ion-button (click)="doConfirm()" class="submit-btn"  round>Update</button>
-
-      
-  </ion-card-content>
-
-  
-
-</ion-card>
-
-<ion-card>
-
-  <ion-item>
-    <ion-avatar item-left>
-      <img src="../assets/img/s.png">
-    </ion-avatar>
-    <h2>Course Title</h2>
-    <p>April 5, 2017</p>
-  </ion-item>
-
-  
-
-  <ion-card-content>
-    <p>Brief description about the course.</p>
-    
-      <button  ion-button (click) ="presentConfirm()" class="register-btn"   round><ion-icon name="trash"></ion-icon> Delete  </button>
-
-      <button ion-button (click)="doConfirm()" class="submit-btn"  round>Update</button>
-
-      
-  </ion-card-content>
-  
-
-  
-
-</ion-card>
-
-<ion-card>
-
-  <ion-item>
-    <ion-avatar item-left>
-      <img src="../assets/img/s.png">
-    </ion-avatar>
-    <h2>Course Title</h2>
-    <p>April 5, 2017</p>
-  </ion-item>
-
-  
-
-  <ion-card-content>
-    <p>Brief description about the course.</p>
-    
-      <button  ion-button (click) ="presentConfirm()" class="register-btn"   round><ion-icon name="trash"></ion-icon> Delete  </button>
-
-      <button ion-button (click)="doConfirm()" class="submit-btn"  round>Update</button>
-
-      
-  </ion-card-content>
-  </ion-card>
-
-<ion-card>
-
-  <ion-item>
-    <ion-avatar item-left>
-      <img src="../assets/img/s.png">
-    </ion-avatar>
-    <h2>Course Title</h2>
-    <p>April 5, 2017</p>
-  </ion-item>
-
-  
-
-  <ion-card-content>
-    <p>Brief description about the course.</p>
-    
-      <button  ion-button (click) ="presentConfirm()" class="register-btn"   round><ion-icon name="trash"></ion-icon> Delete  </button>
-
-      <button ion-button (click)="doConfirm()" class="submit-btn"  round>Update</button>
-
-      
-      
-  </ion-card-content>
-  </ion-card>
-
-<ion-card>
-
-  <ion-item>
-    <ion-avatar item-left>
-      <img src="../assets/img/s.png">
-    </ion-avatar>
-    <h2>Course Title</h2>
-    <p>April 5, 2017</p>
-  </ion-item>
-
-  
-
-  <ion-card-content>
-    <p>Brief description about the course.</p>
-    
-    <button  ion-button (click) ="presentConfirm()" class="register-btn"   round><ion-icon name="trash"></ion-icon> Delete  </button>
-
-      <button ion-button (click)="doConfirm()" class="submit-btn"  round>Update</button>
-
-      
-  </ion-card-content>
-  </ion-card>
+    <ion-item-options side="left">
+      <button ion-button color="danger">
+        <ion-icon name="md-trash" >Delete</ion-icon>
+      </button>
+    </ion-item-options>
+    </ion-item-sliding>
+ 
+  </ion-list>
 
 
 <ion-fab right bottom>

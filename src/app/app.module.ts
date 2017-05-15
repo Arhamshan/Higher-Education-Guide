@@ -14,6 +14,7 @@ import {CoursePage} from '../pages/course/course';
 import {CoursedetailsPage} from '../pages/coursedetails/coursedetails';
 import {AddCoursesPage} from '../pages/addcourses/addcourses';
 import {CoursesPage} from '../pages/courses/courses';
+import{CourseMainPage} from '../pages/coursemain/coursemain';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -29,7 +30,8 @@ import { HomePage } from '../pages/home/home';
     CoursePage,
     CoursedetailsPage,
     AddCoursesPage,
-    CoursesPage
+    CoursesPage,
+    CourseMainPage
   ],
   imports: [
     HttpModule,
@@ -47,7 +49,8 @@ import { HomePage } from '../pages/home/home';
     CoursePage,
     CoursedetailsPage,
     AddCoursesPage,
-    CoursesPage
+    CoursesPage,
+    CourseMainPage
   ],
   providers: [
     StatusBar,

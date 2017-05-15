@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color = "primary">
+    <ion-title>
+      <i class="fa fa-university" aria-hidden="true"></i> Courses and Programmes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+  
+   <ion-content class="login-content" >
+     <div class="input">
+      <ion-grid>
+        <ion-row>
+        <ion-col width-50>
+          <ion-card>
+              <button [navPush]="course" ion-item>
+                 <img src='./assets/imgs/library.png'>
+                  <p> Courses </p>
+                </button>
+          </ion-card>
+      </ion-col>
+      <ion-col width-50>
+        <ion-card>
+         <button [navPush]="addcourse" ion-item>
+                 <img src='./assets/imgs/writing.png'>
+                 Add Courses
+                </button>
+        </ion-card>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-50>
+        <ion-card>
+          <button ion-item>
+                 <img src='./assets/imgs/photo.png'>
+                 Image Gallery
+                </button>
+        </ion-card>
+    </ion-col>
+    <ion-col width-50>
+        <ion-card>
+         <button ion-item>
+                 <img src='./assets/imgs/contact.png'>
+                 Contact Details
+                </button>
+        </ion-card>
+    </ion-col>
+
+        
+
+            
+        </ion-row>
+      </ion-grid>
+     </div>
+    </ion-content>
+
+
