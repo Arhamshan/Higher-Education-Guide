@@ -7,18 +7,18 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Suitable courses for you dsrgerfgswef </h3>
-  
+  <h3>Suitable courses for you  </h3>
+
   <ion-list>
-      <ion-item *ngFor="let course of coursesList">
+      <ion-item *ngFor="let course of suitableCourseList">
           <ion-thumbnail item-left>
             <img src="../../assets/imgs/1.jpg">
           </ion-thumbnail>
           <h2>{{course.title}}</h2> <!--[(ngModel)]="ctitle"-->
-          
+
           <button ion-button clear item-right (click)="viewCourseDetails(course)">View</button>
       </ion-item>
-      
+
   </ion-list>
 
 </ion-content>

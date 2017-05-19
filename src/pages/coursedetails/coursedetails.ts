@@ -10,14 +10,14 @@ import {NewCourses} from '../../app/model/course';
 })
 export class CoursedetailsPage {
   private courseTitle:any;
-public course: NewCourses;
+  public course: NewCourses;
   constructor(public navCtrl: NavController, private navParam: NavParams) {
     this.course = this.navParam.data.param1
-    
+
   }
 
   courseDetail(){
-    
+
     console.log('you course detail: ' + this.course.title);
   }
 
