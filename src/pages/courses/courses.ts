@@ -5,9 +5,11 @@ import { NavController ,AlertController} from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import {AddCoursesPage} from '../addcourses/addcourses';
 
+
 @Component({
   selector: 'page-courses',
-  templateUrl: 'courses.html'
+  templateUrl: 'courses.html',
+   
 })
 export class CoursesPage {
   institute:any;
