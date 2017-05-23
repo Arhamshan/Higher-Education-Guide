@@ -2,9 +2,14 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {JwtHelper, AuthConfig, AuthHttp} from "angular2-jwt";
 
 import { LoginPage } from '../pages/login/login';
 import {StreemPage} from '../pages/streem/streem';
+import {CourseMainPage} from '../pages/coursemain/coursemain';
+import {User} from './model';
+
+import {AuthService} from '../providers/auth-service';
 
 //import * as firebase from 'firebase';
 
@@ -13,9 +18,10 @@ import {StreemPage} from '../pages/streem/streem';
 })
 export class MyApp {
   public rootPage:any;
+  public userRole:number = 0;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.rootPage  = LoginPage;
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private readonly authService: AuthService, public jwtHelper:JwtHelper) {
+    //this.rootPage  = LoginPage;
     
     
   // // Initialize Firebase
@@ -45,6 +51,42 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    // this.authService.authUser.subscribe(jwt => {
+    //   if (jwt) {
+    //     const decoded = this.jwtHelper.decodeToken(jwt);
+    //     this.user = decoded.sub
+    //   }
+    //   else {
+    //     this.user = null;
+    //   }
+    // });
+
+    this.authService.authUser.subscribe(jwt => {
+      if (jwt) {
+        
+        const decoded = this.jwtHelper.decodeToken(jwt);
+        console.log('decoded : '+ JSON.stringify(decoded));
+        this.userRole = decoded.role
+        console.log('user role : '+ this.userRole);
+        if(this.userRole == 2){
+          console.log('student user : ');
+          this.rootPage = StreemPage;
+          
+        }
+        else{
+          console.log('Institute  user');
+          this.rootPage = CourseMainPage;
+        }
+        
+      }
+      else{
+        this.rootPage = LoginPage;
+      }
+    });
+
+    this.authService.checkLogin();
+
   }
 }
 

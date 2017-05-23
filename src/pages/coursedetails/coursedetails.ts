@@ -9,14 +9,24 @@ import {NewCourses} from '../../app/model/course';
   templateUrl: 'coursedetails.html'
 })
 export class CoursedetailsPage {
-  private courseTitle:any;
+  private alResultRequired:any;
   public course: NewCourses;
   constructor(public navCtrl: NavController, private navParam: NavParams) {
     this.course = this.navParam.data.param1
 
+    if(this.course.alresult == 'Good'){
+      this.alResultRequired = 'Minimum 3 C';
+    }else if(this.course.alresult == 'Average'){
+      this.alResultRequired = 'Minimum 3 S';
+    }else{
+      this.alResultRequired = 'Not Required';
+    }
+
   }
 
   courseDetail(){
+
+
 
     console.log('you course detail: ' + this.course.title);
   }

@@ -5,7 +5,7 @@ import {CoursePage} from '../course/course';
 
 
 import {NewCourses} from '../../app/model/course';
-
+import {AuthService} from '../../providers/auth-service';
 
 @Component({
   selector: 'page-olresult',
@@ -19,9 +19,9 @@ export class OlresultPage {
  qualification:any;
  Alevel:any;
 
- OLMaths:any;
- OLScience:any;
- OLEnglish:any;
+ OLMaths:any = 'A';
+ OLScience:any = 'A';
+ OLEnglish:any = 'A';
  Olevel:any;
 
  public courseTitleList: any[] =[];
@@ -29,7 +29,7 @@ export class OlresultPage {
 
   public coursesList: NewCourses[];
 
-  constructor(public navCtrl: NavController, private navParam: NavParams, private alertCtrl: AlertController ) {
+  constructor(public navCtrl: NavController, private navParam: NavParams, private alertCtrl: AlertController, private authService: AuthService ) {
     //this.coursesList = this.navParam.data.param1;
 
     this.Alevel = this.navParam.get('param1');
@@ -56,6 +56,9 @@ viewCourses(){
   });
 }
 
+  logUserOut(){
+    this.authService.logout();
+  }
 
   //this.coursePeriodList = this.navParam.get('param2');
 

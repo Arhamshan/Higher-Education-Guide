@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 
 import { NavController, AlertController } from 'ionic-angular';
-
+import {JwtHelper, AuthHttp} from "angular2-jwt";
+//import { FormBuilder, ControlGroup } from '@angular2/common';
+//import {SERVER_URL} from "../../config";
 //import html pages
 import {LoginPage} from '../login/login';
 import {OlresultPage} from '../olresult/olresult';
 
 //import services
-import {UsersService} from '../../providers/users-service';
+import {AuthService} from '../../providers/auth-service';
 import {NewcourseService} from '../../providers/newcourse-service';
 
 import {NewCourses} from '../../app/model/course';
@@ -15,7 +17,7 @@ import {NewCourses} from '../../app/model/course';
 @Component({
   selector: 'page-streem',
   templateUrl: 'streem.html',
-  providers: [UsersService, NewcourseService]
+  providers: [NewcourseService]
 })
 export class StreemPage {
     public streem:any;
@@ -24,9 +26,9 @@ export class StreemPage {
     public subject3:any;
     public subject4:any;
 
-    public subject1Field:any;
-    public subject2Field:any;
-    public subject3Field:any;
+    public subject1Field:any = 'A';
+    public subject2Field:any = 'A';
+    public subject3Field:any = 'A';
     public Alevel: any;
 
     public listCourses:any;
@@ -35,17 +37,60 @@ export class StreemPage {
     public suitableCoursePeriodList: any[] = [];
 
     public coursesList: NewCourses[];
+    user: string;
+    message: string;
 
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private usersService: UsersService, private newCourseService: NewcourseService) {
+  // static get parameters() {
+  //   // provide Angular with metadata about things it 
+  //   // should inject in the constructor
+  //   // http://ionicframework.com/docs/v2/getting-started/tutorial/adding-pages/
+  //   return [[FormBuilder]];
+  // }
+
+  constructor(public navCtrl: NavController, 
+              private alertCtrl: AlertController, 
+              private authService: AuthService, 
+              private newCourseService: NewcourseService, 
+              private readonly jwtHelper: JwtHelper, 
+              private readonly  authHttp: AuthHttp) {
+
     this.defaultStreem();
     this.loadingStreem();
     
-    
+    this.authService.authUser.subscribe(jwt => {
+      if (jwt) {
+        const decoded = this.jwtHelper.decodeToken(jwt);
+        this.user = decoded.sub
+      }
+      else {
+        this.user = null;
+      }
+    });
+
+    // this.slideOneForm = formBuilder.group({
+    //     firstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+    //     lastName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+    //     age: ['']
+    // });
+
+    // this.myForm = formBuilder.group({
+    //   'subject': '',
+    //   'message': ''
+    // })
+
+  }
+
+  ionViewWillEnter() {
+    this.authHttp.get(`http://localhost:8080/rest/secret`).subscribe(
+      data => this.message = data.text(),
+      err => console.log(err)
+    );
   }
 
   defaultStreem(){
       this.streem = 'Bio';
   }
+
   olResultPage(){
     this.getALResult();
     this.navCtrl.push(OlresultPage, {
@@ -54,10 +99,7 @@ export class StreemPage {
   }
 
   logUserOut(){
-    // this.usersService.logoutUser().then(() =>{
-    //   this.navCtrl.setRoot(LoginPage);
-    // });
-
+    this.authService.logout();
   }
 
 loadingStreem(){
@@ -79,21 +121,8 @@ loadingStreem(){
       this.subject2 = 'Economics';
       this.subject3 = 'Art';
     }
-
-    // this.getSiutableCourseList();
-    // this.suitableCourseList = [];
-    // this.suitableCoursePeriodList = [];
 }
 
-
-// getALResult(){
-//   let alert = this.alertCtrl.create({
-//     title: 'Your results!',
-//     subTitle: this.streem+' : '+this.subject1Field+', '+this.subject2Field+', '+this.subject3Field,
-//     buttons: ['OK']
-//   });
-//   alert.present();
-// }
 
 getALResult(){
   if(this.subject1Field == 'A' || this.subject1Field == 'B' || this.subject1Field == 'C'  && this.subject2Field == 'A' || this.subject2Field == 'B' || this.subject2Field == 'C'  && this.subject3Field == 'A' || this.subject3Field == 'B' || this.subject3Field == 'C' ){
@@ -104,35 +133,5 @@ getALResult(){
       this.Alevel = 'Not Qualified';
   }
 }
-
-
-// viewCoursesTest(){
-//   this.newCourseService.getNewCourses()
-//     .subscribe(
-//       data =>{
-//         for(let newcourse of data){
-//           if(newcourse.alstreem == this.streem || newcourse.alstreem == "Any"  ){
-//             this.suitableCourseList.push(newcourse.title);
-//             this.suitableCoursePeriodList.push(newcourse.courseperiod);            
-//           }
-//         }    
-//       },
-//       error => alert(error),
-//       () => console.log('Finished the request!')
-//     );
-// }
-
-// getSiutableCourseList(){
-//   this.newCourseService.getNewCourses()
-//     .subscribe(
-//       data =>{
-//           this.coursesList = data;
-//           console.log("required result : " + this.coursesList[0].alstreem)
-//       },
-//       error => alert(error),
-//       () => console.log('Finished the request!')
-//     );
-// }
-
 
 }

@@ -16,15 +16,15 @@
 
 <ion-content class="login-content">
     <div class="input">
-     <form>
+     <form #form="ngForm" (ngSubmit)="submitToAdd(form.value)">
       <ion-list>
             
 
             <ion-item>
                 <ion-label >Course Title</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" name="title" [(ngModel)] ="newcourse.title" required></ion-input>
             </ion-item>
-
+<!--
              <ion-item>
                  <ion-label>Course level</ion-label>
                 <ion-select >
@@ -52,6 +52,7 @@
                 <ion-label>Course expirary date</ion-label>
                 <ion-datetime displayFormat="MMM DD, YYYY HH:mm" ></ion-datetime>
             </ion-item>
+            -->
 
            
 
@@ -59,7 +60,7 @@
                  
                  <ion-col class="signup-col">
                 
-                <button ion-button class= "submit-btn" color="secondary" full>Submit</button>
+                <button ion-button type="submit" [disabled] = "!form.valid" class= "submit-btn" color="secondary" full>Submit</button>
                 
 
                 

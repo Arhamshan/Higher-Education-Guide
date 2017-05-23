@@ -3,30 +3,54 @@
     <ion-title>
       <i class="fa fa-sticky-note-o" aria-hidden="true"></i> O/L result
     </ion-title>
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <h3>Enter your O/L results</h3>
 
-  <ion-list>
+    <ion-list>
       <ion-item>
-          <ion-label fixed>Maths :</ion-label>
-          <ion-input type="text" [(ngModel)]="OLMaths"></ion-input>
+        <ion-label>Maths : </ion-label>
+        <ion-select [(ngModel)]="OLMaths">
+          <ion-option value="A">A</ion-option>
+          <ion-option value="B">B</ion-option>
+          <ion-option value="C">C</ion-option>
+          <ion-option value="S">S</ion-option>
+          <ion-option value="F">F</ion-option>
+        </ion-select>
       </ion-item>
+    </ion-list>
+    <ion-list>
       <ion-item>
-          <ion-label fixed>Science :</ion-label>
-          <ion-input type="text" [(ngModel)]="OLScience"></ion-input>
+        <ion-label>Science : </ion-label>
+        <ion-select [(ngModel)]="OLScience">
+          <ion-option value="A">A</ion-option>
+          <ion-option value="B">B</ion-option>
+          <ion-option value="C">C</ion-option>
+          <ion-option value="S">S</ion-option>
+          <ion-option value="F">F</ion-option>
+        </ion-select>
       </ion-item>
+    </ion-list>
+    <ion-list>
       <ion-item>
-          <ion-label fixed>English :</ion-label>
-          <ion-input type="text" [(ngModel)]="OLEnglish"></ion-input>
+        <ion-label>English : </ion-label>
+        <ion-select [(ngModel)]="OLEnglish">
+          <ion-option value="A">A</ion-option>
+          <ion-option value="B">B</ion-option>
+          <ion-option value="C">C</ion-option>
+          <ion-option value="S">S</ion-option>
+          <ion-option value="F">F</ion-option>
+        </ion-select>
       </ion-item>
-  </ion-list>
-
-    <!--<ion-item>
-        <button ion-button color="light" full (click)="viewALResult()">View AL Result</button>
-    </ion-item>-->
+    </ion-list>
 
   <ion-item>
     <button ion-button color="secondary" full (click)="viewCourses()">Submit</button>

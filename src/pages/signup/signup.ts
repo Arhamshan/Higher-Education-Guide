@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
-
+import { Component, ViewChild } from '@angular/core';
+import { NavController, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import {NgModel} from "@angular/forms";
 //import html pages
 import {StreemPage} from '../streem/streem';
 import {LoginPage} from '../login/login';
 
 //import services
-import {UsersService} from '../../providers/users-service';
+import {AuthService} from '../../providers/auth-service';
 
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
-  providers: [UsersService]
+  //providers: [UsersService]
 })
 export class SignUpPage {
   institute:any;
@@ -22,11 +22,72 @@ export class SignUpPage {
   private users = [];
   private usersList: any;
   
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private usersService: UsersService, private loadingCtrl: LoadingController) {
+  @ViewChild('username')
+  usernameModel: NgModel;
+
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private authService: AuthService, private loadingCtrl: LoadingController, private toastCtrl: ToastController) {
 
   }
 
-  signUserUp(){
+
+
+  signup(value: any) {
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Signing up ...'
+    });
+
+    loading.present();
+
+    this.authService
+      .signup(value)
+      .finally(() => loading.dismiss())
+      .subscribe(
+        (jwt) => this.showSuccesToast(jwt),
+        err => this.handleError(err));
+  }
+
+  private showSuccesToast(jwt) {
+    if (jwt !== 'EXISTS') {
+      const toast = this.toastCtrl.create({
+        message: 'Sign up successful',
+        duration: 3000,
+        position: 'bottom'
+      });
+
+      toast.present();
+    }
+    else {
+      const toast = this.toastCtrl.create({
+        message: 'Username already registered',
+        duration: 3000,
+        position: 'bottom'
+      });
+      toast.present();
+      this.usernameModel.control.setErrors({'usernameTaken': true});
+    }
+  }
+
+  handleError(error: any) {
+    let message = `Unexpected error occurred`;
+
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 5000,
+      position: 'bottom'
+    });
+
+    toast.present();
+  }
+
+
+
+
+
+
+
+
+  //signUserUp(){
     // this.usersService.signUpUser(this.emailField, this.passwordField, this.usernameField, this.userType)
     //   .then(authData =>{
     //     //successfull login
@@ -56,7 +117,7 @@ export class SignUpPage {
 
     //   loader.present();
 
-  }
+  //}
 
   // instituteChecked(){
   //   if(this.institute.checked){

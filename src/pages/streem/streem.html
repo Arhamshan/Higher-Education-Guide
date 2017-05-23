@@ -5,11 +5,11 @@
     </ion-title>
 
     <ion-buttons start clear (click)="logUserOut()" >
-        <button >
+        <button ion-button>
             <ion-icon name="person"></ion-icon>
-            Logout
+               Logout
         </button>
-    </ion-buttons>    
+    </ion-buttons>   
   </ion-navbar>
 </ion-header>
 
@@ -26,64 +26,53 @@
             <ion-option value="Arts">Arts</ion-option>
         </ion-select>
     </ion-item>
-    <!--<ion-item *ngFor="let course of suitableCourseList">
-        <ion-label>Course is : {{course}}</ion-label>
-    </ion-item>
-    <ion-item *ngFor="let period of suitableCoursePeriodList">
-        <ion-label>Course is : {{period}}</ion-label>
-    </ion-item>-->
   </ion-list>
 
 <h3>Enter your A/L results</h3>
-  <ion-list >
-      <ion-item>
-          <ion-label fixed>{{subject1}} :</ion-label>
-          <ion-input type="text" [(ngModel)]="subject1Field"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>{{subject2}} :</ion-label>
-          <ion-input type="text" [(ngModel)]="subject2Field"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>{{subject3}} :</ion-label>
-          <ion-input type="text" [(ngModel)]="subject3Field"></ion-input>
-      </ion-item>
-  </ion-list>
+    
+    <ion-list>
+        <ion-item>
+            <ion-label>{{subject1}} : </ion-label>
+            <ion-select [(ngModel)]="subject1Field">
+            <ion-option value="A">A</ion-option>
+            <ion-option value="B">B</ion-option>
+            <ion-option value="C">C</ion-option>
+            <ion-option value="S">S</ion-option>
+            <ion-option value="F">F</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
 
-  <!--<ion-list radio-group [(ngModel)]="userType">
-    <ion-list-header>
-        {{subject1}} :
-    </ion-list-header>
+    <ion-list>
+        <ion-item>
+            <ion-label>{{subject2}} : </ion-label>
+            <ion-select [(ngModel)]="subject2Field">
+            <ion-option value="A">A</ion-option>
+            <ion-option value="B">B</ion-option>
+            <ion-option value="C">C</ion-option>
+            <ion-option value="S">S</ion-option>
+            <ion-option value="F">F</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
 
-    <ion-item class="radio-inline">
-        <ion-radio name="a" checked="true" value="A"></ion-radio>
-        <ion-label >A </ion-label>
-    </ion-item>
-    <ion-item>
-        <ion-label>B</ion-label>
-        <ion-radio name="b" value="B"></ion-radio>
-    </ion-item>
-    <ion-item >
-        <ion-label>C</ion-label>
-        <ion-radio name="c" value="C"></ion-radio>
-    </ion-item>
-    <ion-item>
-        <ion-label>S</ion-label>
-        <ion-radio name="s" value="S"></ion-radio>
-    </ion-item>
-    <ion-item >
-        <ion-label>F</ion-label>
-        <ion-radio name="f" value="F"></ion-radio>
-    </ion-item>
-  </ion-list>-->
+    <ion-list>
+        <ion-item>
+            <ion-label>{{subject3}} : </ion-label>
+            <ion-select [(ngModel)]="subject3Field">
+            <ion-option value="A">A</ion-option>
+            <ion-option value="B">B</ion-option>
+            <ion-option value="C">C</ion-option>
+            <ion-option value="S">S</ion-option>
+            <ion-option value="F">F</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
 
-<!--
-<ion-item>
-    <button ion-button color="danger" full (click)="getSiutableCourseList()">View Results</button>
-</ion-item> -->
 
-<ion-item>
-    <button ion-button color="secondary" full (click)="olResultPage()">Submit</button>
-</ion-item>
+ <ion-item>
+     <button ion-button color="secondary" full (click)="olResultPage()">Submit</button>
+  </ion-item>
 
 </ion-content>
+

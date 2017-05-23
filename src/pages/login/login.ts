@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, LoadingController, AlertController } from 'ionic-angular';
-
+import { NavController, ModalController, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import {NgModel} from "@angular/forms";
 //import html pages
 import {SignUpPage} from '../signup/signup';
 import {StreemPage} from '../streem/streem';
 import {CoursesPage} from '../courses/courses';
-import{CourseMainPage} from '../coursemain/coursemain';
 
 //import services
-import {UsersService} from '../../providers/users-service';
+import {AuthService} from '../../providers/auth-service';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers: [UsersService]
+  //providers: [UsersService]
 })
 export class LoginPage {
   public emailField: any;
@@ -22,22 +21,64 @@ export class LoginPage {
   private usersList: any;
   
 
-  constructor(public navCtrl: NavController, private modalCtrl: ModalController, private loadingCtrl: LoadingController, private alertCtrl: AlertController,  private usersService: UsersService) {
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController, private loadingCtrl: LoadingController, private alertCtrl: AlertController,  private authService: AuthService, private readonly toastCtrl: ToastController) {
       //this.usernameField = "arhamshan";
       //this.listUsers();
   }
 
-  viewItem(){
-      this.navCtrl.push(SignUpPage);
+
+  signup() {
+    this.navCtrl.push(SignUpPage);
   }
 
-  pickStreem(){
-    this.navCtrl.push(StreemPage);
+  login(value: any) {
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Logging in ...'
+    });
+
+    loading.present();
+
+    this.authService
+      .login(value)
+      .finally(() => loading.dismiss())
+      .subscribe(
+        () => {},
+        err => this.handleError(err));
   }
 
-  adminPage(){
-      this.navCtrl.push(CourseMainPage);
+  handleError(error: any) {
+    let message: string;
+    if (error.status && error.status === 401) {
+      message = 'Login failed';
+    }
+    else {
+      message = `Unexpected error: ${error.statusText}`;
+    }
+
+    const toast = this.toastCtrl.create({
+      message,
+      duration: 5000,
+      position: 'bottom'
+    });
+
+    toast.present();
   }
+
+
+}
+
+  // viewItem(){
+  //     this.navCtrl.push(SignUpPage);
+  // }
+
+  // pickStreem(){
+  //   this.navCtrl.push(StreemPage);
+  // }
+
+  // adminPage(){
+  //     this.navCtrl.push(CoursesPage);
+  // }
 
   // loginUser(){
   //   this.usersService.loginUser(this.emailField, this.passwordField)
@@ -129,4 +170,4 @@ export class LoginPage {
   //     })
   // } 
 
-}
+

@@ -3,6 +3,12 @@
     <ion-title>
       <i class="fa fa-university" aria-hidden="true"></i> Courses and Programmes
     </ion-title>
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
@@ -32,7 +38,7 @@
   <ion-row>
     <ion-col width-50>
         <ion-card>
-          <button ion-item>
+          <button [navPush]="image"ion-item>
                  <img src='./assets/imgs/photo.png'>
                  Image Gallery
                 </button>

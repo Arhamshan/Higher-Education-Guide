@@ -31,7 +31,7 @@ public i:number;
         this.Alevel = this.navParam.get('param1');
         this.ALstreem = this.navParam.get('param2');
         this.Olevel = this.navParam.get('param3');
-        console.log('A/L is :  ' + this.Olevel);
+        console.log('A/L is :  ' + this.Alevel);
         console.log('O/L is :  ' + this.Olevel);
         this.getAllCourseList();
 }
@@ -49,19 +49,42 @@ getAllCourseList(){
     .subscribe(
       data =>{
           this.coursesList = data;
-
-          console.log("required result : " + this.coursesList[0].alstreem);
           for(let newcourse of this.coursesList){
-            console.log("Hello streem is : " + newcourse.alstreem);
             if(newcourse.alstreem == this.ALstreem || newcourse.alstreem == "Any"){
-              if(newcourse.alresult == this.Alevel){
+              
+              if(this.Alevel == 'Good'){
                 this.suitableCourseList.push(newcourse);
-              }
+              }else if(this.Alevel == 'Average'){
+                if(newcourse.alresult == 'Average' || newcourse.alresult == 'Not Required'){
+                  if(this.Olevel == 'Good'){
+                    this.suitableCourseList.push(newcourse);
+                  }else if(this.Olevel == 'Average'){
+                    if(newcourse.olresult == 'Average' || newcourse.olresult == 'Not Required'){
+                      this.suitableCourseList.push(newcourse);
+                    }
+                  }else if(this.Olevel == 'Not Qualified'){
+                    //Console.log('OL Not required : ' + newcourse.title);
+                    if(newcourse.olresult == 'Not Required'){
+                      this.suitableCourseList.push(newcourse);
+                    }
+                  }
+                }
+              }else if(this.Alevel == 'Not Qualified'){
+                if(newcourse.alresult == 'Not Required'){
+                  if(this.Olevel == 'Good'){
+                    this.suitableCourseList.push(newcourse);
+                  }else if(this.Olevel == 'Average'){
+                    if(newcourse.olresult == 'Average' || newcourse.olresult == 'Not Required'){
+                      this.suitableCourseList.push(newcourse);
+                    }
+                  }else if(this.Olevel == 'Not Qualified'){
+                    if(newcourse.olresult == 'Not Required'){
+                      this.suitableCourseList.push(newcourse);
+                    }
+                  }
+                }
+              }       
             }
-          }
-
-          for(let suitableNewcourse of this.suitableCourseList){
-            console.log("Hello filtered course is : " + suitableNewcourse.title);
           }
       },
       error => alert(error),
@@ -69,7 +92,7 @@ getAllCourseList(){
     );
 
 }
-
+//if(this.Alevel == 'Average' || this.Alevel == 'Not Qualified'){}
 filterSiutableCourseList(){
   this.getAllCourseList();
   this.i =0;
@@ -85,6 +108,5 @@ filterSiutableCourseList(){
 
 
 }
-
 
 }

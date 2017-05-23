@@ -12,23 +12,23 @@
 <div class="input">
 <ion-list>
 
-  <ion-item-sliding>
-    <ion-item>
+  <ion-item-sliding  *ngFor="let newcourse of newCoursesList">
+    <ion-item (click)="viewCourse(newcourse)">
     <ion-avatar item-left>
       <img src='./assets/img/s.png'>
     </ion-avatar>
-    <h2>Title</h2>
-    <p>course.date</p>
+    <h2>{{newcourse.title}}</h2>
+    <p>{{newcourse.alstreem}}</p>
     <p>course.description</p>
     </ion-item>
     <ion-item-options side="right">
-      <button ion-button color="secondary">
+      <button ion-button color="secondary" (click)="editCourse(newcourse)">
         <ion-icon name="md-create" >Edit</ion-icon>
       </button>
     </ion-item-options>
 
     <ion-item-options side="left">
-      <button ion-button color="danger">
+      <button ion-button color="danger" (click)="deleteCourse(newcourse)">
         <ion-icon name="md-trash" >Delete</ion-icon>
       </button>
     </ion-item-options>

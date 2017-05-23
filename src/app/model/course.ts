@@ -1,4 +1,5 @@
 
+import {User} from './user';
 
 export class NewCourses{
     
@@ -8,6 +9,7 @@ export class NewCourses{
     alresult: string;
     olresult: string;
     courseperiod: string;
+    user:User;
 
     NewCourses(){
         this.id = 0;
@@ -16,6 +18,8 @@ export class NewCourses{
         this.alresult= '';
         this.olresult = '';
         this.courseperiod = '';
+
+        this.user = null;
     }
 
 

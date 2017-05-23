@@ -1,0 +1,30 @@
+<!--
+  Generated template for the EditCourses page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>editCourses</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="submitToEditCourse(form.value)" novalidate>
+      <ion-list>
+
+        <ion-item>
+          <ion-label floating>Course Title</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="newcourses.title" ></ion-input>
+        </ion-item>
+        <div padding>
+          <button ion-button color="primary" block type="submit" [disabled]="!form.valid">Edit Course</button>
+        </div>
+
+      </ion-list>
+    </form>
+</ion-content>
