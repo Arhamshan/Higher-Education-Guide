@@ -6,25 +6,110 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar class="navbar" color = "primary">
     <ion-title>editCourses</ion-title>
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
 
 </ion-header>
 
+<div class="input">
+</div>
+ 
 
-<ion-content padding>
+<ion-content class="login-content">
+    <div class="input">
   <form #form="ngForm" (ngSubmit)="submitToEditCourse(form.value)" novalidate>
       <ion-list>
 
         <ion-item>
-          <ion-label floating>Course Title</ion-label>
-          <ion-input type="text" name="title" [(ngModel)]="newcourses.title" ></ion-input>
+          <ion-label >Course Title</ion-label>
+          <ion-input type="text" name="title" [(ngModel)]="title" (ngModelChange)="edittitle()" ></ion-input>
         </ion-item>
-        <div padding>
-          <button ion-button color="primary" block type="submit" [disabled]="!form.valid">Edit Course</button>
-        </div>
+
+    
+       
+
+          <ion-item>
+                 <ion-label>Course level</ion-label>
+                <ion-select [(ngModel)] ="level" (ngModelChange)="editlevel()" name="level">
+                     <ion-option value="Honours Degree" >Honours Degree</ion-option>
+                    <ion-option value="General Degree">General Degree</ion-option>
+                    <ion-option value="Advanced Diploma">Advanced Diploma</ion-option>
+                    <ion-option value="Diploma">Diploma</ion-option>
+                    <ion-option value="Certificate">Certificate</ion-option>
+                </ion-select>
+            </ion-item>
+
+             <ion-item>
+
+             <ion-label>Required A/L Stream</ion-label>
+
+             <ion-select [(ngModel)] ="alstreem" (ngModelChange)="editalstreem()" name ="stream">
+                <ion-option value="Bio" >Bio Science</ion-option>
+                <ion-option value="Maths">Combined Maths</ion-option>
+                <ion-option value="Commerce">Commerce</ion-option>
+                <ion-option value="Arts">Arts</ion-option>
+            </ion-select>
+
+             </ion-item>
+             <ion-item>
+                 <ion-label>A/L Requirement</ion-label>
+                 <ion-select [(ngModel)] ="alresult" (ngModelChange)="editalresult()" name ="result">
+
+                    <ion-option value="Good" >Good</ion-option>
+                    <ion-option value="Average"> Average</ion-option>
+                    <ion-option value="Not Required">Not Required</ion-option>
+
+                </ion-select>
+            </ion-item>
+
+             <ion-item>
+                 <ion-label>O/L Requirement</ion-label>
+                 <ion-select [(ngModel)] ="olresult" (ngModelChange)="editolresult()" name ="results"  >
+                  
+                    <ion-option value="Good" >Good</ion-option>
+                    <ion-option value="Average"> Average</ion-option>
+                    <ion-option value="Not Required">Not Required</ion-option>
+
+                </ion-select>
+            </ion-item>
+
+             <ion-item>
+                 <ion-label>Course Period</ion-label>
+                <ion-select [(ngModel)] ="courseperiod" (ngModelChange)="editcourseperiod()" name="period">
+                 <ion-option value="4 Years" >4 Years</ion-option>
+                    <ion-option value="3 Years">3 Years</ion-option>
+                    <ion-option value="2 Years">2 Years</ion-option>
+                    <ion-option value="1 Year">1 Year</ion-option>
+                    <ion-option value="6 Months">6 Months</ion-option>
+                </ion-select>
+            </ion-item>
+
+
+            <ion-item>
+                <ion-label >Course details</ion-label>
+                <ion-textarea [(ngModel)] ="coursedetails"  (ngModelChange)="editcoursedetails()"name ="details" ></ion-textarea>
+                
+            </ion-item>
+
+            <ion-row>                 
+                <ion-col class="signup-col">                
+                    <button ion-button class= "submit-btn" block type="submit" [disabled]="!form.valid">Edit Course</button>
+                </ion-col>                 
+            </ion-row>
 
       </ion-list>
     </form>
+    <ion-row>                 
+        <ion-col class="signup-col">                
+            <button ion-button class="register-btn"  color="danger" full (click)="cancel()">Cancel</button>
+        </ion-col>                 
+    </ion-row>
+    </div>
 </ion-content>

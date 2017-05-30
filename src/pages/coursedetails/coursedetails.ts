@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import {NewCourses} from '../../app/model/course';
+//import services
+import {AuthService} from '../../providers/auth-service';
 
 @Component({
   selector: 'page-coursedetails',
@@ -11,7 +13,9 @@ import {NewCourses} from '../../app/model/course';
 export class CoursedetailsPage {
   private alResultRequired:any;
   public course: NewCourses;
-  constructor(public navCtrl: NavController, private navParam: NavParams) {
+  constructor(public navCtrl: NavController, 
+              private navParam: NavParams, 
+              private authService:AuthService) {
     this.course = this.navParam.data.param1
 
     if(this.course.alresult == 'Good'){
@@ -25,10 +29,11 @@ export class CoursedetailsPage {
   }
 
   courseDetail(){
-
-
-
     console.log('you course detail: ' + this.course.title);
+  }
+
+  logUserOut(){
+    this.authService.logout();
   }
 
 }

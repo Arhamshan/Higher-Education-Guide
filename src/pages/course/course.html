@@ -3,11 +3,17 @@
     <ion-title>
       <i class="fa fa-university" aria-hidden="true"></i> Courses
     </ion-title>
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Suitable courses for you  </h3>
+<ion-content padding class="login-content input">
+  <h3 class="txt">Suitable courses for you  </h3>
 
   <ion-list>
       <ion-item *ngFor="let course of suitableCourseList">

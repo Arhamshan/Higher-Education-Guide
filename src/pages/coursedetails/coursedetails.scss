@@ -1,20 +1,20 @@
-page-login{
+page-coursedetails{
     .login-content {
       
       background: url('../assets/imgs/b1.png');
      
       margin-bottom: 0;
  
-    // .logo-row {
-    //   padding-top: 50px;
-    //   padding-bottom: 20px;
-    // }
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
  
-    // .login-box {
-    //   background: #FF1744;
-    //   padding: 20px 20px 0px 20px;
-    //   margin-top: 30px;
-    // }
+    .login-box {
+      background: #FF1744;
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+    }
  
     ion-row {
        align-items: center;
@@ -33,10 +33,10 @@ page-login{
     //       font-family: Neoteric;
     //  }
  
-    //  .signup-col {
-    //    margin: 0px 5px 0px 5px;
-    //    padding-bottom: 20px;
-    //  }
+     .signup-col {
+       margin: 0px 5px 0px 5px;
+       padding-bottom: 20px;
+     }
  
      .item-inner {
        border-bottom-color: #ffffff !important;
@@ -63,14 +63,11 @@ page-login{
        
      }     
 
-    //  .input {
-    //    padding: 15px 0px;
-    //  }
+     .input {
+       padding: 15px 0px;
+     }
      .txt {
          color: whitesmoke;
-     }
-     .err {
-         color: red;
      }
 
      @font-face {
@@ -78,5 +75,4 @@ page-login{
         src: url('http://www.dafont.com/neoteric.font'); /*URL to font*/
     }
   }
-
 }

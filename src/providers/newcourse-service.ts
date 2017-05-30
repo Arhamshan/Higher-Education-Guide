@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http,RequestOptions,Headers,Response  } from '@angular/http';
 import 'rxjs/add/operator/map';
-
+//import 'rxjs/add/operator/catch';
 //import {SERVER_URL} from "../../config";
 import {NewCourses } from '../app/model/course';
 import { Observable } from 'rxjs/Observable';
@@ -49,26 +49,26 @@ export class NewcourseService {
 
   addCourse(course:NewCourses): Observable<NewCourses>{
        const body = JSON.stringify(course);
-       let url = this.baseURL+`/course/add`;
+       let url = this.baseURL+`/add`;
 
-      return this.http.post(url, body, this._options)
+      return this.authHttp.post(url, body, this._options)
                         .map((res:Response) => res.json())
                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   editCourse(course:NewCourses): Observable<NewCourses>{
        const body = JSON.stringify(course);
-       let url = this.baseURL+`/course/edit`;
+       let url = this.baseURL+`/edit`;
 
-      return this.http.put(url, body, this._options)
+      return this.authHttp.put(url, body, this._options)
                         .map((res:Response) => res.json())
                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   deleteCourse(id: number): Observable<string>{
 
-    let url = this.baseURL+`/course/delete/${id}`;
-    return this.http.delete(url,this._options)
+    let url = this.baseURL+`/delete/${id}`;
+    return this.authHttp.delete(url,this._options)
                         .map((res:Response) => res.json())
                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }

@@ -5,7 +5,12 @@
     <ion-title>
       Add courses and programmes
     </ion-title>
-    
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
   
 </ion-header>
@@ -19,57 +24,95 @@
      <form #form="ngForm" (ngSubmit)="submitToAdd(form.value)">
       <ion-list>
             
-
+            <ion-item>
+                <ion-label >Institue Name :</ion-label>
+                <ion-input type="text" name="institue" [(ngModel)] ="newcourse.institue" required></ion-input>
+            </ion-item>
             <ion-item>
                 <ion-label >Course Title</ion-label>
                 <ion-input type="text" name="title" [(ngModel)] ="newcourse.title" required></ion-input>
             </ion-item>
-<!--
+
+            
              <ion-item>
+            
                  <ion-label>Course level</ion-label>
-                <ion-select >
-                <ion-option value="H" selected="true">Honours Degree</ion-option>
-                <ion-option value="G">General Degree</ion-option>
-                <ion-option value="A">Advanced Diploma</ion-option>
-                <ion-option value="D">Diploma</ion-option>
-                <ion-option value="C">Certificate</ion-option>
+                <ion-select [(ngModel)] ="newcourse.level" name ="level">
+                    <ion-option value="Honours Degree" selected="true">Honours Degree</ion-option>
+                    <ion-option value="General Degree">General Degree</ion-option>
+                    <ion-option value="Advanced Diploma">Advanced Diploma</ion-option>
+                    <ion-option value="Diploma">Diploma</ion-option>
+                    <ion-option value="Certificate">Certificate</ion-option>
+                </ion-select>
+
+            </ion-item>
+            
+             <ion-item>
+
+             <ion-label>Required A/L Stream</ion-label>
+
+             <ion-select [(ngModel)] ="newcourse.alstreem" name ="stream">
+                <ion-option value="Bio" selected="true">Bio Science</ion-option>
+                <ion-option value="Maths">Combined Maths</ion-option>
+                <ion-option value="Commerce">Commerce</ion-option>
+                <ion-option value="Arts">Arts</ion-option>
+            </ion-select>
+
+             </ion-item>
+
+             <ion-item >
+                 <ion-label>Required A/L result</ion-label>
+                <ion-select [(ngModel)] ="newcourse.alresult"  name ="result">
+                    <ion-option value="Good" selected="true">Good</ion-option>
+                    <ion-option value="Average"> Average</ion-option>
+                    <ion-option value="Not Required">Not Required</ion-option>
+               
                 </ion-select>
             </ion-item>
 
+             <ion-item>
 
-            <ion-item>
-                <ion-label floating>Course details</ion-label>
-                <ion-input type="text"></ion-input>
-                
+                 <ion-label>Required O/L result</ion-label>
+
+                <ion-select [(ngModel)] ="newcourse.olresult" name ="results"  >
+                    <ion-option value="Good" selected="true">Good</ion-option>
+                    <ion-option value="Average">Average</ion-option>
+                    <ion-option value="Not Required">Not Required</ion-option>
+                </ion-select>
+
             </ion-item>
 
              <ion-item>
-                <ion-label>Course starting date</ion-label>
-                <ion-datetime displayFormat="MMM DD, YYYY HH:mm" ></ion-datetime>
+
+                 <ion-label>Course Period</ion-label>
+
+                <ion-select [(ngModel)] ="newcourse.courseperiod" name ="period" >
+                    <ion-option value="4 Years" selected="true">4 Years</ion-option>
+                    <ion-option value="3 Years">3 Years</ion-option>
+                    <ion-option value="2 Years">2 Years</ion-option>
+                    <ion-option value="18 Months">18 Months</ion-option>
+                    <ion-option value="12 Months">12 Months</ion-option>
+                    <ion-option value="6 Months">6 Months</ion-option>
+
+                </ion-select>
             </ion-item>
 
             <ion-item>
-                <ion-label>Course expirary date</ion-label>
-                <ion-datetime displayFormat="MMM DD, YYYY HH:mm" ></ion-datetime>
-            </ion-item>
-            -->
+                <ion-label >Course details</ion-label>
+                <ion-textarea [(ngModel)] ="newcourse.coursedetails" name ="details" ></ion-textarea>
+            </ion-item>         
 
-           
-
-            <ion-row>
-                 
-                 <ion-col class="signup-col">
-                
-                <button ion-button type="submit" [disabled] = "!form.valid" class= "submit-btn" color="secondary" full>Submit</button>
-                
-
-                
-                <button ion-button class="register-btn"  color="danger" full (click)="viewItem()">Cancel</button>
-                
-            </ion-col>
-                 
-            </ion-row>            
+            <ion-row>                 
+                <ion-col class="signup-col">                
+                    <button ion-button type="submit" [disabled] = "!form.valid" class= "submit-btn" color="secondary" full>Submit</button>
+                </ion-col>
+            </ion-row>        
         </ion-list>
      </form>
+     <ion-row>                 
+        <ion-col class="signup-col">                
+            <button ion-button class="register-btn"  color="danger" full (click)="cancel()">Cancel</button>                
+        </ion-col>
+    </ion-row>
     </div>
 </ion-content>

@@ -1,42 +1,42 @@
-page-login{
+page-signup{
     .login-content {
       
       background: url('../assets/imgs/b1.png');
      
       margin-bottom: 0;
  
-    // .logo-row {
-    //   padding-top: 50px;
-    //   padding-bottom: 20px;
-    // }
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
  
-    // .login-box {
-    //   background: #FF1744;
-    //   padding: 20px 20px 0px 20px;
-    //   margin-top: 30px;
-    // }
+    .login-box {
+      background: #FF1744;
+      padding: 20px 20px 0px 20px;
+      margin-top: 30px;
+    }
  
     ion-row {
        align-items: center;
        text-align: center;
      }
  
-    //  ion-item {
-    //      border-radius: 20px !important;
-    //      padding-left: 20px !important;
-    //      padding-top:0px; 
-    //      font-size: 1.1em;
-    //      margin-bottom: 10px;
-    //      border: 1px solid #9FA8DA;
-    //      border-bottom: 0px !important;
-    //      box-shadow: none !important;
-    //       font-family: Neoteric;
-    //  }
+     ion-item {
+         border-radius: 20px !important;
+         padding-left: 20px !important;
+         padding-top:0px; 
+         font-size: 1.1em;
+         margin-bottom: 10px;
+         border: 1px solid #9FA8DA;
+         border-bottom: 0px !important;
+         box-shadow: none !important;
+          font-family: Neoteric;
+     }
  
-    //  .signup-col {
-    //    margin: 0px 5px 0px 5px;
-    //    padding-bottom: 20px;
-    //  }
+     .signup-col {
+       margin: 0px 5px 0px 5px;
+       padding-bottom: 20px;
+     }
  
      .item-inner {
        border-bottom-color: #ffffff !important;
@@ -60,12 +60,11 @@ page-login{
        box-shadow: 2px 2px 2px  #888888;
        font-family: Neoteric;
        position: bottom;
-       
      }     
 
-    //  .input {
-    //    padding: 15px 0px;
-    //  }
+     .input {
+       padding: 5px 0px;
+     }
      .txt {
          color: whitesmoke;
      }
@@ -78,5 +77,4 @@ page-login{
         src: url('http://www.dafont.com/neoteric.font'); /*URL to font*/
     }
   }
-
 }

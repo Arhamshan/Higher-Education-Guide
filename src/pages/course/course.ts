@@ -6,6 +6,7 @@ import{CoursedetailsPage} from '../coursedetails/coursedetails';
 import {NewCourses} from '../../app/model/course';
 
 //import services
+import {AuthService} from '../../providers/auth-service';
 import {NewcourseService} from '../../providers/newcourse-service';
 
 @Component({
@@ -26,7 +27,10 @@ public suitableCourseList: NewCourses[] = [];
 //newcourse:NewCourses;
 
 public i:number;
-  constructor(public navCtrl: NavController, private navParam: NavParams, private alertCtrl: AlertController, private newCourseService: NewcourseService) {
+  constructor(public navCtrl: NavController, private navParam: NavParams, 
+              private alertCtrl: AlertController, 
+              private newCourseService: NewcourseService, 
+              private authService:AuthService) {
 
         this.Alevel = this.navParam.get('param1');
         this.ALstreem = this.navParam.get('param2');
@@ -92,21 +96,10 @@ getAllCourseList(){
     );
 
 }
-//if(this.Alevel == 'Average' || this.Alevel == 'Not Qualified'){}
-filterSiutableCourseList(){
-  this.getAllCourseList();
-  this.i =0;
-  // while(this.coursesList.length = 0){
 
-  //     // if(newcourse.alstreem == this.ALstreem ||   ){
-  //       //this.suitableCourseList = newcourse;
-  //       this.newcourse = this.coursesList[this.i];
-  //       console.log("Hello this is : " + this.newcourse.title);
-  //       this.i++;
-  //     //}
-  // }
+logUserOut(){
+    this.authService.logout();
+  }
 
-
-}
 
 }

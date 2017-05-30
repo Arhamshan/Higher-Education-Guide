@@ -12,8 +12,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Enter your O/L results</h3>
+<ion-content padding class="login-content input">
+  <h3 class="txt">Enter your O/L results</h3>
 
     <ion-list>
       <ion-item>
@@ -52,8 +52,10 @@
       </ion-item>
     </ion-list>
 
-  <ion-item>
-    <button ion-button color="secondary" full (click)="viewCourses()">Submit</button>
-  </ion-item>
-
+    <ion-row>                    
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full (click)="viewCourses()">Submit</button>
+        </ion-col>
+    </ion-row>
+  
 </ion-content>

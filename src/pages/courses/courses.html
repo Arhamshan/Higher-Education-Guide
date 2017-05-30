@@ -3,6 +3,12 @@
     <ion-title>
       <i class="fa fa-university" aria-hidden="true"></i> Manage Courses and Programmes
     </ion-title>
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 <div class="input">
@@ -15,11 +21,11 @@
   <ion-item-sliding  *ngFor="let newcourse of newCoursesList">
     <ion-item (click)="viewCourse(newcourse)">
     <ion-avatar item-left>
-      <img src='./assets/img/s.png'>
+      <img src='./assets/imgs/1.jpg'>
     </ion-avatar>
     <h2>{{newcourse.title}}</h2>
-    <p>{{newcourse.alstreem}}</p>
-    <p>course.description</p>
+    <!--<h3>{{newcourse.level}}</h3>
+    <h3>{{newcourse.coursedetails}}</h3>-->
     </ion-item>
     <ion-item-options side="right">
       <button ion-button color="secondary" (click)="editCourse(newcourse)">

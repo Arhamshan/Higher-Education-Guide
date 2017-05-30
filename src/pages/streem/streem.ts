@@ -106,12 +106,12 @@ loadingStreem(){
     if(this.streem=="Maths"){
       this.subject1 = 'Com.Maths';
       this.subject2 = 'Chemistry';
-      this.subject3 = 'physics';
+      this.subject3 = 'Physics';
 
     }else if(this.streem=="Bio"){
       this.subject1 = 'Biology';
       this.subject2 = 'Chemistry';
-      this.subject3 = 'physics';
+      this.subject3 = 'Physics';
     }else if(this.streem=="Commerce"){
       this.subject1 = 'Accounting';
       this.subject2 = 'Bussines study';

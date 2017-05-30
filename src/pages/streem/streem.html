@@ -14,8 +14,8 @@
 </ion-header>
 
 
-<ion-content padding>
-  <h3>Select yout A/L streem</h3>
+<ion-content padding class="login-content input">
+  <h3 class="txt">Select yout A/L streem</h3>
   <ion-list >
     <ion-item>
         <ion-label>A/L Streem :</ion-label>
@@ -28,7 +28,7 @@
     </ion-item>
   </ion-list>
 
-<h3>Enter your A/L results</h3>
+<h3 class="txt">Enter your A/L results</h3>
     
     <ion-list>
         <ion-item>
@@ -69,10 +69,10 @@
         </ion-item>
     </ion-list>
 
-
- <ion-item>
-     <button ion-button color="secondary" full (click)="olResultPage()">Submit</button>
-  </ion-item>
-
+    <ion-row>                    
+        <ion-col class="signup-col">
+            <button ion-button class="submit-btn" full (click)="olResultPage()">Submit</button>
+        </ion-col>
+    </ion-row>
 </ion-content>
 

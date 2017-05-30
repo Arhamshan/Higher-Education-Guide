@@ -3,10 +3,16 @@
     <ion-title>
       <i class="fa fa-university" aria-hidden="true"></i> Course Details
     </ion-title>
+    <ion-buttons start clear (click)="logUserOut()" >
+        <button ion-button>
+            <ion-icon name="person"></ion-icon>
+               Logout
+        </button>
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="login-content input">
   <ion-card >
         <img src="../../assets/imgs/1.jpg" /> <!--//style="height:300px; width:300px"-->
         <ion-card-content>
@@ -15,35 +21,52 @@
             </ion-card-title>
             <ion-list>
                 <ion-item>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip <br/>
-                        ex ea commodo consequat . Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+                    <h6>
+                        {{course.coursedetails}}
+                    </h6>
                 </ion-item>
 
                 <h4><b>Requirements And Details</b></h4>
                 <ion-item>
                     <ion-icon name="albums" item-left></ion-icon>
                     A/L Result :
+                </ion-item>
+                <ion-item>
                     <ion-note item-right>
                         {{alResultRequired}}
                     </ion-note>
                 </ion-item>
-
+               
                 <ion-item>
                     <ion-icon name="calendar" item-left></ion-icon>
                     Course Period :
+                    </ion-item>
+                    <ion-item>
+                <ion-note item-right>
+                          {{course.courseperiod}}
+                     </ion-note>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="book" item-left></ion-icon>
+                    <h6>Course Level :</h6>
+                   </ion-item>
+                   <ion-item> 
                     <ion-note item-right>
-                        {{course.courseperiod}}
+                        {{course.level}}
+                    </ion-note>
+                </ion-item>
+                <ion-item>
+                    <ion-icon name="school" item-left></ion-icon>
+                    Institute :
+                </ion-item>
+                <ion-item>    
+                    <ion-note item-right>
+                        {{course.institue}}
                     </ion-note>
                 </ion-item>
 
             </ion-list>
-            <a ion-button target="_blanck" (click)="courseDetail()" >View On Website </a>
+            <!--<a ion-button target="_blanck" (click)="courseDetail()" >View On Website </a>-->
         </ion-card-content>
     </ion-card>
 </ion-content>

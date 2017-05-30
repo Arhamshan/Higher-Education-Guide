@@ -18,45 +18,25 @@
      <div class="input">
       <ion-grid>
         <ion-row>
-        <ion-col width-50>
+       
           <ion-card>
               <button [navPush]="course" ion-item>
                  <img src='./assets/imgs/library.png'>
-                  <p> Courses </p>
+                  <h2> Courses </h2>
                 </button>
           </ion-card>
-      </ion-col>
-      <ion-col width-50>
+        </ion-row>
+        
+        <ion-row>
         <ion-card>
          <button [navPush]="addcourse" ion-item>
                  <img src='./assets/imgs/writing.png'>
-                 Add Courses
+                <h2> Add Courses</h2>
                 </button>
         </ion-card>
-      </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col width-50>
-        <ion-card>
-          <button [navPush]="image"ion-item>
-                 <img src='./assets/imgs/photo.png'>
-                 Image Gallery
-                </button>
-        </ion-card>
-    </ion-col>
-    <ion-col width-50>
-        <ion-card>
-         <button ion-item>
-                 <img src='./assets/imgs/contact.png'>
-                 Contact Details
-                </button>
-        </ion-card>
-    </ion-col>
-
         
-
-            
-        </ion-row>
+      </ion-row>
+ 
       </ion-grid>
      </div>
     </ion-content>
